@@ -1,0 +1,39 @@
+﻿@model List<GameModel>
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button" asp-controller="Home" asp-action="Criar">Adicionar Novo Jogo</a>
+</div>
+
+<h1>TESTE </h1>
+
+<div class="cards">
+        @if (Model != null)
+        {
+            foreach (GameModel Game in Model)
+            {
+
+                <div class="card mb-lg-3" style="width: 18rem;">
+                    <img class="card-img-top" src="@Game.Img" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Game.Name</h5>
+                    <p class="card-text">@Game.Description</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nota: @Game.Nota Estrelas</li>
+                        <li class="list-group-item">@Game.ReleaseDate</li>
+                        <li class="list-group-item">R$ @Game.Price,00</li>
+                    </ul>
+                    <div class="card-footer">
+                        <a href="#" class="card-link">@Game.Developer</a>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a role="button" class="btn btn-warning" asp-route-id="@Game.Id" asp-controller="Home" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-route-id="@Game.Id" asp-action="ApagarConfirmacao">Apagar</a>
+                    </div>
+                </div>
+            }
+        }
+</div>
