@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GamesReview.Migrations.BancoGame
 {
     [DbContext(typeof(BancoGameContext))]
-    [Migration("20230126175408_CriandoTabelaGames")]
-    partial class CriandoTabelaGames
+    [Migration("20230203144527_TabelaGames")]
+    partial class TabelaGames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,10 @@ namespace GamesReview.Migrations.BancoGame
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("reviwer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -14,6 +14,7 @@ namespace GamesReview.Models
         public string Developer { get; set; }
         public double Price { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string reviwer { get; set; }
 
     }
 }

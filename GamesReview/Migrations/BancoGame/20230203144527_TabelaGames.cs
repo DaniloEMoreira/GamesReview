@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GamesReview.Migrations.BancoGame
 {
     /// <inheritdoc />
-    public partial class CriandoTabelaGames : Migration
+    public partial class TabelaGames : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,8 @@ namespace GamesReview.Migrations.BancoGame
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Developer = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    reviwer = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

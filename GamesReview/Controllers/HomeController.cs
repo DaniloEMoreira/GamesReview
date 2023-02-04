@@ -1,10 +1,12 @@
 ﻿using GamesReview.Models;
 using GamesReview.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace GamesReview.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly IGameRepositorio _gameRepositorio;
@@ -19,6 +21,7 @@ namespace GamesReview.Controllers
             return View(games);
         }
 
+        [Authorize]
         public IActionResult Criar()
         {
             return View();
